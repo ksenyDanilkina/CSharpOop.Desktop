@@ -42,16 +42,8 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Цельсий",
-            "Фаренгейт",
-            "Кельвин"});
             this.comboBox1.Location = new System.Drawing.Point(40, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(120, 21);
@@ -62,10 +54,6 @@
             this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Цельсий",
-            "Фаренгейт",
-            "Кельвин"});
             this.comboBox2.Location = new System.Drawing.Point(219, 50);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(120, 21);
@@ -130,6 +118,7 @@
             this.button1.Text = "ПЕРЕВЕСТИ";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Enter += new System.EventHandler(this.button1_Click);
             // 
             // maskedTextBox1
             // 
@@ -144,7 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(384, 233);
+            this.ClientSize = new System.Drawing.Size(384, 244);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
@@ -155,9 +144,12 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(400, 260);
             this.Name = "TemperatureConverterView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Конвертер температур";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TemperatureConverterView_KeyUp_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

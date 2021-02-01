@@ -46,8 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\IView.cs" />
+    <Compile Include="Model\Celsius.cs" />
+    <Compile Include="Controller\IController.cs" />
+    <Compile Include="Model\IBasicScale.cs" />
+    <Compile Include="Model\Fahrengheit.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\Kelvin.cs" />
     <Compile Include="Model\TemperatureConverter.cs" />
+    <Compile Include="View\IView.cs" />
     <Compile Include="View\TemperatureConverterView.cs">
       <SubType>Form</SubType>
     </Compile>

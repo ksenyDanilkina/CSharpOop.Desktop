@@ -5,12 +5,22 @@ namespace CSharpOop.TemperatureConverterTask
 {
     public partial class TemperatureConverterView : Form, IView
     {
-        private readonly Controller controller;
+        private readonly IController controller;
 
-        public TemperatureConverterView(Controller controller)
+        public TemperatureConverterView(IController controller, IBasicScale[] scales)
         {
             this.controller = controller;
+
             InitializeComponent();
+
+            foreach (var e in scales)
+            {
+                comboBox1.Items.Add(e);
+                comboBox2.Items.Add(e);
+            }
+
+            comboBox1.DisplayMember = "Name";
+            comboBox2.DisplayMember = "Name";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,14 +43,22 @@ namespace CSharpOop.TemperatureConverterTask
             }
         }
 
-        public string GetFromScale()
+        private void TemperatureConverterView_KeyUp_1(object sender, KeyEventArgs e)
         {
-            return comboBox1.SelectedItem.ToString();
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
         }
 
-        public string GetToScale()
+        public IBasicScale GetFromScale()
         {
-            return comboBox2.SelectedItem.ToString();
+            return (IBasicScale)comboBox1.SelectedItem;
+        }
+
+        public IBasicScale GetToScale()
+        {
+            return (IBasicScale)comboBox2.SelectedItem;
         }
 
         public double GetValueForConvert()

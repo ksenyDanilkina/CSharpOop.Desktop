@@ -1,17 +1,17 @@
 ﻿namespace CSharpOop.TemperatureConverterTask
 {
-    public class Controller
-    {       
-        private readonly TemperatureConverter temperatureConverter;
+    public class Controller : IController
+    {
+        private readonly IModel model;
 
-        public Controller(TemperatureConverter temperatureConverter)
+        public Controller(IModel model)
         {
-            this.temperatureConverter = temperatureConverter;
+            this.model = model;
         }
-       
+
         public double ConvertTemperature(IView view)
         {
-            return temperatureConverter.Convert(view.GetFromScale(), view.GetToScale(), view.GetValueForConvert());                          
+            return model.Convert(view);
         }
     }
 }

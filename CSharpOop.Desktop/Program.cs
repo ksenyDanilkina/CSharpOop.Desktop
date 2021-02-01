@@ -13,11 +13,13 @@ namespace CSharpOop.TemperatureConverterTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            TemperatureConverter temperatureConverter = new TemperatureConverter();
-            Controller controller = new Controller(temperatureConverter);
-                       
-            Application.Run(new TemperatureConverterView(controller));
+
+            var model = new TemperatureConverter();
+            var controller = new Controller(model);
+
+            var scales = new IBasicScale[] { new Kelvin(), new Fahrengheit(), new Celsius() };
+
+            Application.Run(new TemperatureConverterView(controller, scales));
         }
     }
 }

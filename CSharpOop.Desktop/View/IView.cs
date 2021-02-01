@@ -2,9 +2,9 @@
 {
     public interface IView
     {
-        string GetFromScale();
+        IBasicScale GetFromScale();
 
-        string GetToScale();
+        IBasicScale GetToScale();
 
         double GetValueForConvert();
     }
